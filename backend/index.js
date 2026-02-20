@@ -9,8 +9,15 @@ const AttendanceRouter = require('./Routes/AttendanceRouter');
 const AuthRouter = require('./Routes/AuthRouter');
 const cors = require('cors');
 
+const allowedOrigins = [
+    'https://employee-management-system.vercel.app',
+    'http://localhost:3000',
+    'http://localhost:5173',
+    process.env.FRONTEND_URL
+].filter(Boolean);
+
 app.use(cors({
-    origin: process.env.FRONTEND_URL || '*',
+    origin: allowedOrigins,
     credentials: true
 }));
 app.use(bodyParser.json());
