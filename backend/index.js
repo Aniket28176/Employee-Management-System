@@ -13,17 +13,30 @@ const EmployRouter = require('./Routes/EmployRouter');
 const AttendanceRouter = require('./Routes/AttendanceRouter');
 const AuthRouter = require('./Routes/AuthRouter');
 
+const frontendUrls = process.env.FRONTEND_URL
+    ? process.env.FRONTEND_URL.split(',').map(url => url.trim()).filter(Boolean)
+    : [];
+
 const allowedOrigins = [
     'https://employee-management-system.vercel.app',
-    'https://employee-management-system-2-m53o.onrender.com',
-    'https://employee-management-system-1-bdoy.onrender.com', // ✅ ADD THIS
+    'https://employee-management-system-1-awkg.onrender.com',
     'http://localhost:3000',
     'http://localhost:5173',
-    process.env.FRONTEND_URL
+    ...frontendUrls
 ].filter(Boolean);
 
 app.use(cors({
-    origin: allowedOrigins,
+    origin: (origin, callback) => {
+        if (!origin) {
+            return callback(null, true);
+        }
+
+        if (allowedOrigins.includes(origin) || /^https:\/\/.*\.onrender\.com$/.test(origin)) {
+            return callback(null, true);
+        }
+
+        callback(new Error('Not allowed by CORS'));
+    },
     credentials: true
 }));
 
