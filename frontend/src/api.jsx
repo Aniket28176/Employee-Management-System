@@ -1,4 +1,4 @@
-const BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5882';
+const BASE_URL = import.meta.env.VITE_API_URL || 'https://employee-management-system-1-bdoy.onrender.com';
 
 /* =====================================
    COMMON RESPONSE HANDLER

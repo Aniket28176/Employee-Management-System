@@ -15,7 +15,8 @@ const AuthRouter = require('./Routes/AuthRouter');
 
 const allowedOrigins = [
     'https://employee-management-system.vercel.app',
-    'https://employee-management-system-2-m53o.onrender.com', // ✅ ADD THIS
+    'https://employee-management-system-2-m53o.onrender.com',
+    'https://employee-management-system-1-bdoy.onrender.com', // ✅ ADD THIS
     'http://localhost:3000',
     'http://localhost:5173',
     process.env.FRONTEND_URL

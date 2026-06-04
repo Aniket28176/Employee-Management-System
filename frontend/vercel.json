@@ -3,6 +3,11 @@
   "outputDirectory": "dist",
   "framework": "vite",
   "env": {
-    "VITE_API_URL": "@vite_api_url"
+    "VITE_API_URL": "https://employee-management-system-1-bdoy.onrender.com"
+  },
+  "build": {
+    "env": {
+      "VITE_API_URL": "https://employee-management-system-1-bdoy.onrender.com"
+    }
   }
 }
